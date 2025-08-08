@@ -20,7 +20,7 @@ pip install -r requirements.txt
 
 ---
 
-python repair_manager.py
+python3 repair_manager.py(Unless your environment uses python repair_manager.py
 
 ---
 
