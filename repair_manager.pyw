@@ -194,7 +194,7 @@ class App(tk.Tk):
         if not customers: messagebox.showinfo("Info","Please add customers first"); return
         win = tk.Toplevel(self); win.title("Add Equipment")
         ttk.Label(win, text="Customer").grid(row=0, column=0, padx=5, pady=3)
-        cust_var = tk.StringVar(); cust_combo = ttk.Combobox(win, textvariable=cust_var, values=[f"{r['customer_id']} - {r['name']}" for r in customers]); cust_combo.grid(row=0, column=1, padx=5, pady=3)
+        cust_var = tk.StringVar(); cust_combo = ttk.Combobox(win, textvariable=cust_var, values=[f\"{r['customer_id']} - {r['name']}\" for r in customers]); cust_combo.grid(row=0, column=1, padx=5, pady=3)
         labels = ("Make","Model","CPU","RAM","Storage","OS","Serial Number"); entries=[]
         for r,lab in enumerate(labels, start=1):
             ttk.Label(win, text=lab).grid(row=r, column=0, sticky="w", padx=5, pady=3)
@@ -234,9 +234,9 @@ class App(tk.Tk):
         if not equipment: messagebox.showinfo("Info","Add equipment first"); return
         win = tk.Toplevel(self); win.title("Create Work Order")
         ttk.Label(win, text="Equipment").grid(row=0, column=0, padx=5, pady=3)
-        eq_var=tk.StringVar(); ttk.Combobox(win, textvariable=eq_var, values=[f"{r['equipment_id']} - {r['make']} {r['model']}" for r in equipment]).grid(row=0,column=1,padx=5,pady=3)
+        eq_var=tk.StringVar(); ttk.Combobox(win, textvariable=eq_var, values=[f\"{r['equipment_id']} - {r['make']} {r['model']}\" for r in equipment]).grid(row=0,column=1,padx=5,pady=3)
         ttk.Label(win, text="Technician (optional)").grid(row=1,column=0,padx=5,pady=3)
-        tech_var=tk.StringVar(); ttk.Combobox(win, textvariable=tech_var, values=[f"{t['technician_id']} - {t['name']}" for t in technicians]).grid(row=1,column=1,padx=5,pady=3)
+        tech_var=tk.StringVar(); ttk.Combobox(win, textvariable=tech_var, values=[f\"{t['technician_id']} - {t['name']}\" for t in technicians]).grid(row=1,column=1,padx=5,pady=3)
         ttk.Label(win, text="Work Description").grid(row=2,column=0,padx=5,pady=3)
         desc=ttk.Entry(win,width=50); desc.grid(row=2,column=1,padx=5,pady=3)
         def save():
@@ -270,7 +270,7 @@ class App(tk.Tk):
         ttk.Label(win, text="Work Order ID").grid(row=0,column=0,padx=5,pady=3)
         wo_var=tk.StringVar(); ttk.Combobox(win, textvariable=wo_var, values=[str(r['workorder_id']) for r in wos]).grid(row=0,column=1,padx=5,pady=3)
         ttk.Label(win, text="Part").grid(row=1,column=0,padx=5,pady=3)
-        part_var=tk.StringVar(); ttk.Combobox(win, textvariable=part_var, values=[f"{p['part_id']} - {p['description']} (Qty {p['quantity']})" for p in parts]).grid(row=1,column=1,padx=5,pady=3)
+        part_var=tk.StringVar(); ttk.Combobox(win, textvariable=part_var, values=[f\"{p['part_id']} - {p['description']} (Qty {p['quantity']})\" for p in parts]).grid(row=1,column=1,padx=5,pady=3)
         ttk.Label(win, text="Quantity").grid(row=2,column=0,padx=5,pady=3); qty_ent=ttk.Entry(win); qty_ent.grid(row=2,column=1,padx=5,pady=3)
         def save():
             try: wid=int(wo_var.get()); part_id=int(part_var.get().split(" - ")[0]); qty=int(qty_ent.get())
@@ -296,7 +296,7 @@ class App(tk.Tk):
         self.tree["columns"]=cols
         for i,col in enumerate(cols): self.tree.heading(f"#{i+1}", text=col); self.tree.column(f"#{i+1}", width=120)
         for r in data:
-            cust = f"{r['first_name']} {r['last_name']}" if r['first_name'] else ""
+            cust = f\"{r['first_name']} {r['last_name']}\" if r['first_name'] else ""
             self.tree.insert("", "end", values=(r['workorder_id'], r['date_opened'], r['equipment_id'], r['make'], r['model'], cust, r['technician'] or "", r['work_description']))
         self.set_status(f"{len(data)} open work orders")
 
@@ -305,7 +305,7 @@ class App(tk.Tk):
         if not customers: messagebox.showinfo("Info","No customers found"); return
         win = tk.Toplevel(self); win.title("Work History by Customer")
         ttk.Label(win, text="Customer").grid(row=0,column=0,padx=5,pady=3)
-        cust_var=tk.StringVar(); cust_combo=ttk.Combobox(win, textvariable=cust_var, values=[f"{r['customer_id']} - {r['name']}" for r in customers]); cust_combo.grid(row=0,column=1,padx=5,pady=3)
+        cust_var=tk.StringVar(); cust_combo=ttk.Combobox(win, textvariable=cust_var, values=[f\"{r['customer_id']} - {r['name']}\" for r in customers]); cust_combo.grid(row=0,column=1,padx=5,pady=3)
         tree = ttk.Treeview(win, columns=("WO ID","Opened","Closed","Status","Equipment","Serial","Description"), show="headings")
         for col in ("WO ID","Opened","Closed","Status","Equipment","Serial","Description"): tree.heading(col, text=col); tree.column(col, width=120)
         tree.grid(row=1, column=0, columnspan=3, pady=6)
@@ -314,7 +314,7 @@ class App(tk.Tk):
             except: messagebox.showerror("Error","Select a valid customer"); return
             rows=get_workorders_by_customer(cid)
             for r in rows:
-                equip = f"{r['make']} {r['model']} (ID {r['equipment_id']})"
+                equip = f\"{r['make']} {r['model']} (ID {r['equipment_id']})\"
                 tree.insert("", "end", values=(r['workorder_id'], r['date_opened'], r['date_closed'] or "", r['status'], equip, r['serial_number'], r['work_description']))
         ttk.Button(win, text="Show", command=show).grid(row=0,column=2,padx=6)
         def export_csv():
@@ -352,9 +352,9 @@ class App(tk.Tk):
             tree.delete(*tree.get_children())
             if not term: return
             custs = search_customers(term)
-            for c in custs: tree.insert("", "end", values=("Customer", c['customer_id'], f"{c['first_name']} {c['last_name']} - {c['phone']}"))
+            for c in custs: tree.insert("", "end", values=("Customer", c['customer_id'], f\"{c['first_name']} {c['last_name']} - {c['phone']}\"))
             wos = search_workorders(term)
-            for w in wos: tree.insert("", "end", values=("WorkOrder", w['workorder_id'], f"{w['date_opened']} - {w['make']} {w['model']} - {w['work_description']}"))
+            for w in wos: tree.insert("", "end", values=("WorkOrder", w['workorder_id'], f\"{w['date_opened']} - {w['make']} {w['model']} - {w['work_description']}\"))
         ttk.Button(win, text="Search", command=dosearch).grid(row=0,column=2,padx=6)
 
 # helper for fetch_all used in methods above
