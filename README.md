@@ -1,5 +1,5 @@
 # repair_manager
-Repair Manager is a local desktop application built with **PyQt6** and **SQLite** for managing clients, jobs, and invoices for repair businesses.
+Repair Manager is a local desktop application built with **SQLite** for managing clients, jobs, and invoices for repair businesses.
 
 This was created using AI, it works fine and is a simple program. Unless I find something not working correctly it will not be updated. If you improve it.... great. Do what you will with it if you find it useful.
 
