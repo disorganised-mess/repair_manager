@@ -16,12 +16,10 @@ This was created using AI, it works fine and is a simple program. Unless I find 
 ---
 
 ## Requirements
-Install the dependencies using:
-```bash
-pip install -r requirements.txt
+See requirements.txt
 
 ---
-
+## To run
 python3 repair_manager.py(Unless your environment uses python repair_manager.py)
 
 ---
