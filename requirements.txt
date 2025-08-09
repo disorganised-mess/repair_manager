@@ -1,13 +1,9 @@
-# GUI Framework for application
-PyQt6>=6.5.0,<7.0.0
+# SQLite is part of Python's standard library; no need to install via pip.
+# However, ensure Python 3.10+ is used for full compatibility.
 
 # PDF generation for invoices
 reportlab>=3.6.0,<4.0.0
 
-# SQLite is part of Python's standard library; no need to install via pip.
-# However, ensure Python 3.10+ is used for full compatibility.
-
-# Optional: Cross-platform file dialogs, used indirectly by PyQt6
-# (installed automatically with PyQt6, but explicitly listed here for clarity)
-PyQt6-Qt6>=6.5.0,<7.0.0
-PyQt6-sip>=13.5.0,<14.0.0
+# GUI Framework for application
+python3-tk=3.12
+tk=8.6
