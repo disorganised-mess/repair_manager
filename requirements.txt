@@ -1,8 +1,4 @@
-# SQLite is part of Python's standard library; no need to install via pip.
-# However, ensure Python 3.10+ is used for full compatibility.
-
-# PDF generation for invoices
-python3-reportlab>=3.6.0,<4.0.0
-
-# GUI Framework for application
-python3-tk=3.12
+PyQt6>=6.5
+pandas>=2.0
+reportlab>=4.0
+matplotlib>=3.7
