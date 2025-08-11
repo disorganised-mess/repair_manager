@@ -45,7 +45,7 @@ You can install dependencies **either** via your system's package manager (**rec
 ### **Option 1: Install from Kubuntu 24.04 Repositories** **The list is not guaranteed to not be missing something**
 ```bash
 sudo apt update
-sudo apt install python3-pyqt6 python3-pyqt6.qtcharts python3-reportlab python3-pandas python3-matplotlib sqlite3 libqt6sql6-sqlite
+sudo apt install python3-pyqt6 python3-pyqt6.qtcharts python3-reportlab python3-pandas python3-matplotlib sqlite3 libqt6sql6-sqlite python3-openpyxl
 ```
 
 ### **Option 2: Install via pip**
