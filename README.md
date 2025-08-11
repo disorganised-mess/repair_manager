@@ -1,8 +1,8 @@
 # CRM Application
 
 A desktop **Customer Relationship Management (CRM)** tool built with **PyQt6** and **SQLite3**.
-It features a dashboard with quick statistics and charts, full record management for invoices and work orders, CSV/JSON import/export, PDF generation, and configurable business details.
-This is simple and more tailored for my wishes. Do what you will with it. Just download and run, as long as you have the libraries needed it should work without issue.(If anything is missing let me know and I'll correct the list.)
+It features a dashboard with quick statistics and charts, full record management for invoices and work orders, CSV/JSON import/export, PDF generation, and configurable business details.  
+This is simple and more tailored for my wishes. Do what you will with it. Just download and run, as long as you have the libraries needed it should work without issue.(If anything is missing let me know and I'll correct the list.)  
 This was made with AI, I needed something simple and nothing out there worked without more knowledge than I have.
 
 ---
